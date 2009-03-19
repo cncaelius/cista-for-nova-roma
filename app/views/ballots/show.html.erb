@@ -1,0 +1,13 @@
+<p>
+  <b>Election:</b>
+  <%=h @ballot.election_id %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%=h @ballot.issue %>
+</p>
+
+
+<%= link_to 'Edit', edit_ballot_path(@ballot) %> |
+<%= link_to 'Back', ballots_path %>

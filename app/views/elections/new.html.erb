@@ -1,0 +1,31 @@
+<h1>New election</h1>
+
+<% form_for(@election) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :comitia %><br />
+    <%= f.text_field :comitia %>
+  </p>
+  <p>
+    <%= f.label :presmag %><br />
+    <%= f.text_field :presmag %>
+  </p>
+  <p>
+    <%= f.label :startdate %><br />
+    <%= f.datetime_select :startdate %>
+  </p>
+  <p>
+    <%= f.label :enddate %><br />
+    <%= f.datetime_select :enddate %>
+  </p>
+  <p>
+    <%= f.label :centprae %><br />
+    <%= f.text_field :centprae %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', elections_path %>

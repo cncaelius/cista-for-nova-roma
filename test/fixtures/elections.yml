@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  comitia: MyString
+  presmag: MyString
+  startdate: 2009-03-18 16:24:16
+  enddate: 2009-03-18 16:24:16
+  centprae: 1
+
+two:
+  comitia: MyString
+  presmag: MyString
+  startdate: 2009-03-18 16:24:16
+  enddate: 2009-03-18 16:24:16
+  centprae: 1

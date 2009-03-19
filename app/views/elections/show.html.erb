@@ -1,0 +1,50 @@
+<%= @Election %>
+
+
+<p>
+  <b>ID:</b>
+  <%=h @election.id %>
+</p>
+
+<p>
+  <b>Comitia:</b>
+  <%=h @election.comitia %>
+</p>
+
+<p>
+  <b>Presiding Magistrate:</b>
+  <%=h @election.presmag %>
+</p>
+
+<p>
+  <b>Start Date:</b>
+  <%=h @election.startdate %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%=h @election.enddate %>
+</p>
+
+<p>
+  <b>Centuria Praerogativa:</b>
+  <%=h @election.centprae %>
+</p>
+
+<p>
+  <b>Date Created:</b>
+  <%=h @election.created_at %>
+</p>
+
+<p>
+  <b>Date Updated:</b>
+  <%=h @election.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_election_path(@election) %> |
+<%= link_to 'Edit', new_election_ballot_path(@election) %> |
+<%= link_to 'Back', elections_path %>
+
+<br />
+<br />
+
