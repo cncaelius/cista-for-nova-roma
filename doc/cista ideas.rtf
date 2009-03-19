@@ -1,0 +1,179 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf350
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww18000\viewh14160\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 * Voter registration - voter code mailed to person, must be entered in their voter page to "register". Then vote can be cast. They should have to provide BOTH voter code AND their Nova Roma password, so that their voter code can not be used by someone else.\
+* Candidacy Declaration - can be initiated by the candidate themselves. System will check length of citizenship (as of date of taking office) and other requirements; person cannot declare for things for which they do not match qualifications (they can't even declare for those positions and get an error; it's just greyed out).\
+* Authentication is done via voter code e-mail and maybe a security question.\
+* Vote confidentiality - keeping a vote secret until the time to count\
+* Accuracy - should be simple to do on a computer\
+* Security certificate, 256 bit?\
+* We need regulations, such as "you cannot divulge your password to others", with repercussions.\
+\
+\
+This whole situation with the cista has really tweaked me. I'm not pointing fingers, really. It's not any one person's fault; I place whatever blame on the shoulders of the organization itself and its rocky history. But what is happening is clearly unacceptable, not only to me but to many others. This issue must be resolved.\
+I would like to reiterate why I am here and why I am doing what I am doing (and not doing). I spent almost 20 years in the IT industry as a programmer, network admin, systems admin, Linux/FreeBSD admin, MySQL DBA, and doing technical customer support. I burned out totally a couple of years ago and have tried to pull myself away from computer-related jobs as much as possible. I have become a yoga teacher. I'm going back to school for linguistics. I'm very comfortable with computers, having spent most of my time since I was 10 years old using them. I'm a Unix geek and bought a MacBook specifically so that I could have OSX as my operating system as opposed to Windows. All that being said, I've said that I'm not really interested in DOING much IT work in Nova Roma, but that I am more than willing to give my input in the hopes that others will implement it. I'm starting to think that few others are willing to do things.\
+Nova Roma is a 501(c)(3) non-profit corporation with international scope. We have people all over the world and our IT infrastructure is essential to the operation of our organization. Without a healthy, operating, reliable, and trustworthy IT infrastructure, the organization itself will fall apart completely. Agricola has put in insane amounts of work and deserves seven hills-worth of praise for his efforts. But it's just not enough. There are too many things to do and not enough people to do them.\
+Therefore, I think I am willing to work on creating a new cista from scratch. I won't work on it alone; others MUST be involved in coding it in a timely and organized manner. As with all important tasks in Nova Roma, it should be accomplished collegially. I will be glad to assist in its coordination and development.\
+\
+The new cista should have the following requirements:\
+\
+* It should be a standalone application. It should not interface with any other aspects of the Nova Roma IT infrastructure except for the citizen database (for login and verification purposes). This is for security and stability.\
+* It should be coded in a standard language, preferably PHP due to its ease of use. Other good options could be Ruby and Python. This allows any number of computer professionals the ability to change the code in the future, if needed.\
+* It should use a reliable back-end database. MySQL is my obvious choice.\
+* It should be developed according to standard good practices for software development, including using a version control system with EXTREMELY STRONG requirements for full documentation of any and all changes to the code. The code for each release should be made available for perusal by any citizen; this is similar to an open-source methodology, but is "read-only".\
+* It should be as simple as possible, adhering to an active policy of limiting "feature creep" and excessive complexity. Keep it simple!\
+* The cista should also handle tribal and century allocations, both automatically and manually. The censores could make changes here, as needed.\
+* It should be hosted on a system which is not under the direct control of any one member of Nova Roma. Nova Roma should pay for hosting costs.\
+* An operations audit trail is an absolute requirement. User, user type, date/time, and change made should be saved so that any changes could be verified and/or backed out.\
+* It should have multiple ballot types: magistrate, lex, etc. These may be able to be configured via something like an XML file or even a simple "ballot type creation interface". All basic ballot types will be created by the development team as a part of the initial release.\
+* Ballots should shift to a non-secret ballot system to allow a user to verify their individual vote. Voter codes could continue to be used in this instance.\
+* Timing of voting based on a sequential system can be created if the sequential voting remains. A simple option to disable it can also be included in case sequential voting is voted down in the future.\
+* If the project is successful and the cista is placed into service, only a few people should have access to the vote databases, the backend admin interface of the cista, and any other sensitive information and/or interfaces. These people would include the custodes, the Censores, and maybe the Consules. This would have to be decided. There may be separate interfaces for various types of users (full admin, censor, consul, custos, diribitor, etc.). For a full admin to make any changes, there should be some sort of "multiple 'launch' key"-style input required. The admin would need an action and time-limited code from another magistrate to be able to log in and make certain changes. This would allow only the full admin to make certain changes, but only with the approval of one or more "authorizers" . The security and auditing part of the cista will be more complicated than the voting and vote-counting itself, I bet. Counting votes is easy; making sure those\
+votes are accurate and secure is harder.\
+* Automated testing is a requirement. The whole cista--even when "live"--should be able to be tested for accuracy and stability. Unit tests will be mandatory. (This almost makes "Ruby on Rails" a worthwhile option. Ideas?)\
+\
+There is one critical task to complete BEFORE this could be placed into operation: new hosting. I know this is being discussed. Could we get hosting by early January? I have hosting space available for initial development and testing, if needed, but I refuse to offer it past the end of January 2762. This makes new hosting a requirement of the project if it is going to succeed.\
+So, I will have free time between 17 December and 8 January due to a break from school. I'm not going out of town for the holidays or anything like that. I'm willing to discuss this for no more than 3-4 weeks (starting now), drawing up requirements, setting up version control, finding others to do work, prioritizing features, and assigning tasks. Then, we should start working no later than the third week of December. An alpha version would be placed somewhere for testing no later than 11 January 2762 (2009). I suggest PHP+MySQL or "Ruby on Rails"; I have experience with both.\
+Who else is willing to put in the time and effort to help to reduce voting problems in Nova Roma in the future?This is an incredibly important part of our IT infrastructure, possibly the most important. Let's get this right, then move on to other tasks.\
+\
+\
+\
+\
+Cn. Caelius Ahenobarbus omnibus s.p.d.\
+\
+* Programming language and frameworks\
+** PHP/MySQL is more common than Ruby on Rails.\
+** PHP/MySQL is available at more hosting providers than RoR.\
+** PHP/MySQL is known by more programmers than RoR.\
+** PHP/MySQL is a bit faster, but this has no relevance to our very small application.\
+** PHP/MySQL runs some of the largest sites on the Internet, many which have millions of users per day.\
+** RoR is built for rapid application development and deployment. It's orders of magnitude faster and cleaner than PHP/MySQL.\
+** RoR has built-in unit, functional, and integration testing.\
+\
+** RoR is database agnostic, just in case we want to use something like Oracle or MSSQL (BARF!) in the future.\
+** RoR is a paradigm shift for older programmers (as it was for me). If you're an old-school PHP/C/BASIC/ whatever programmer, doing OO Ruby in a framework that does a lot of the underlying work for you is a serious change.\
+** RoR is newer technology (2005) than PHP (1990s).\
+** RoR is used for some very successful and busy sites on the web, such as Twitter.com.\
+*** Result: I think I'm leaning towards Ruby on Rails, but not irretrievably. RoR's rapid development cycle would be a benefit to us. If we found that it wasn't exactly what we need, we could do what many teams do: create a prototype in RoR, then write the actual app in PHP/MySQL.\
+\
+* Tools needed\
+** Independent hosting, owned and paid-for by Nova Roma, Inc. I have used a few places in the past, and I'm currently using Hostgator for a couple of personal and tiny commercial sites. They're great, and I'd suggest them in a heartbeat. It would cost USD$10 per month for their "Baby" plan, which should be more than enough for this project. Or we could use DreamHost and get free hosting (see http://wiki. dreamhost. com/Non-profit_ Discount ) and both RoR and PHP/MySQL support.\
+** Collaboration tools other than just e-mail. A Jabber instant messaging server would work and could be implemented immediately. Skype can also be used for voice-based conference calls. Dreamhost provides Jabber servers, too; Hostgator does not.\
+** Subversion version control. Either Dreamhost or Hostgator has this.\
+** A simple web-based project management package would be helpful.\
+*** Result: Although I like Hostgator, if Dreamhost will give us what we need for free (because we can prove our 501(c)(3) with our IRS letter), I say we go with Dreamhost.\
+\
+* Personnel\
+** I will coordinate, but we need at least one other person to coordinate, as well. Coordinators should be collegiate.\
+** Do we have any PHP programmers? Any Ruby programmers? Any MySQL programmers?\
+** The team should have at least 3 or 4 people, preferably 5 or 6, and no more than 10 to 12.\
+** Lists of strengths/skills, weakneswundses, and interests should be e-mailed to the coordinators so that tasks and positions can be assigned. (Don't do this right now; I'm just saying...)\
+** My strengths are in systems and network administration, high-level application design, database design, and some coding (PHP and MySQL; I'm not fluent in Ruby, but I've played with it). My main weakness is impatience; I want this to start, keep going, and not stop until it's finished (BY OR BEFORE the deadline). My interests in this project are: the project itself, how votes are counted and tallied, making the interfaces as user-friendly as possible, and making sure that the votes are secure and reliable.\
+\
+* Tasks\
+** Get hosting of some sort (critical; first item)\
+** Domain? CistaNovaeRomae. org ? This is optional. Otherwise, USD$10/year or less.\
+** Set up version control (critical)\
+** Set up RoR as needed (critical, dependent upon using RoR)\
+** Create feature list and prioritize: required, strongly recommended, optional but useful, nice to have\
+** Start only on required tasks. At least 80-90% of required tasks should be completed before moving on to "strongly recommended" , and so on.\
+\
+* Support of Nova Roma\
+** The Senate should be supportive of this project, in general. If they are not, figure out why not and try to remedy the situation.\
+** The diribitors, custodes, censores, and maybe the consules will need access to this application. They also have experience with our past elections. We should interview them and get their input.\
+** Based on recent conversations on the Nova-Roma list, many people (including me) want a reliable voting system that is easy to use. The People support this project, I believe.\
+** We need to interface with the citizenship database for login purposes, even though we may be hosted on another server.\
+** REMEMBER: We would be writing this application for the organization, for its magistrates, and for its users. It should be fast, easy to use, reliable, secure, and useful. If they can't use it, we're wasking our time and energy.\
+\
+\
+\
+Types of object:\
+\
+Election\
+Ballot\
+Ballot Item\
+Ballot Item Type (candidate, proposal)\
+Vote\
+Voter\
+Administrator\
+\
+Types of Administrator\
+Full Admin (requires "launch key")\
+Database admin (requires "launch key" of some sort)\
+Magistrate-Consul (can convene elections)\
+Magistrate-Praetor    \\\
+Magistrate-Tribunus  >- Do we need multiples? Probably. Or should there be a separate table of "Administrator Types" with perms?  \
+Magistrate-Aedilis     /\
+Voter (can vote, if registration is validated)\
+\
+\
+\
+Organizational changes\
+\
+* Duoviri indicii - Two men of the information - Two CIOs\
+* DIs under Curule Aediles, who should have more authority in the Republic than the Plebian Aediles. DIs and the team serve at the will of the CAeds.\
+* CAed. does IT, real-world events, Macellum, larger games (2 or 3 a year?). PAed. does smaller games (online only), learns to manage events and people\
+* Change cursus honorum to make serving as a plebian aedile a prerequisite to curule aedile\
+\
+\
+Vote table\
+Election ID:\
+Voter ID:\
+Ballot Item ID:\
+Option chosen ID:\
+\
+\
+Current status of voting should be visible to all. Total # of votes, number of active elections, etc. Update in real-time so people can see how things progress.\
+\
+Multilingual, Latin and English, and preferably the other languages for which there are official interpreters\
+\
+\
+\
+\
+\
+Models:\
+\
+Election\
+Ballot\
+Ballot Item\
+Completed Ballot\
+Completed Ballot Item\
+\
+Magistrate\
+Custos\
+Diribitor\
+Voter\
+Tribe\
+Comitia (Centuriata, Tributa, Plebis, Senate)\
+Century\
+\
+\
+Assumptions:\
+* The system has a valid contact e-mail address for everyone.\
+\
+Flow of operations:\
+	A magistrate creates an election in the cista. He selects the comitia in which the election will be held. He sets the start and end dates of the election. He creates the ballot. He creates the ballot items. Once he has completed all of these steps, he can call the election. NO changes can be made after the election is called.\
+	The system e-mails all members of the comitia to tell them of the upcoming election, its dates, and its ballot items.\
+	A voter can view the ballot at any time, but cannot submit their vote until it is their time to do so. This is based on the election itself, the voter's tribe/century/class, and the NR calendar. When the voter votes, a completed ballot is created, giving the voter a record of their vote.\
+	The diribitores can see the votes, and their totals. The custodes can do these things plus break ties (and ONLY break ties; any other vote changing is not allowed). The custodes can also certify elections, and they must all agree. Once the election results are certified, a report is sent to the presiding magistrate.\
+\
+\
+\
+\
+Agile list\
+\
+First:\
+	Login/logout of voter\
+	Elections and ballots set up by technical team, not magistrates; magistrate interface comes later\
+	election, ballot, ballotitem, completedballot, completedballotitem, result controllers\
+\
+\
+\
+Wait....agile task list:\
+1) CRUD elections\
+2) CRUD ballot 1-to-1 election\
+3) CRUD ballotitems many-to-1 ballot\
+}
