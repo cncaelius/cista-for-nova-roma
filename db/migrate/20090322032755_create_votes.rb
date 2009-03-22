@@ -4,6 +4,7 @@ class CreateVotes < ActiveRecord::Migration
 
       t.timestamps
       t.integer :option_id
+      t.integer :user_id
     end
   end
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090322032755) do
+ActiveRecord::Schema.define(:version => 20090322040001) do
 
   create_table "ballot_items", :force => true do |t|
     t.datetime "created_at"
@@ -42,10 +42,24 @@ ActiveRecord::Schema.define(:version => 20090322032755) do
     t.string   "text"
   end
 
+  create_table "users", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "login",                              :null => false
+    t.string   "crypted_password",                   :null => false
+    t.string   "password_salt",                      :null => false
+    t.string   "persistence_token",                  :null => false
+    t.string   "single_access_token",                :null => false
+    t.string   "perishable_token",                   :null => false
+    t.integer  "login_count",         :default => 0, :null => false
+    t.integer  "failed_login_count",  :default => 0, :null => false
+  end
+
   create_table "votes", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "option_id"
+    t.integer  "user_id"
   end
 
 end

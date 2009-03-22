@@ -4908,3 +4908,334 @@ Migrating to CreateVotes (20090322032755)
   [4;35;1mBallotItem Load (0.5ms)[0m   [0mSELECT * FROM `ballot_items` LIMIT 1[0m
   [4;36;1mOption Load (1.4ms)[0m   [0;1mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
   [4;35;1mOption Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (11.7ms)[0m   [0;1mDROP DATABASE IF EXISTS `cista_test`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE DATABASE `cista_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (9.1ms)[0m   [0;1mCREATE TABLE `ballot_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_id` int(11), `description` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE `ballots` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `election_id` int(11), `issue` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE `elections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comitia` varchar(255), `presmag` varchar(255), `startdate` datetime, `enddate` datetime, `centprae` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE `options` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_item_id` int(11), `text` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `option_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.2ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032755')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090322032614')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032233')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090318234453')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090318232416')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (75.6ms)[0m   [0;1mDROP DATABASE IF EXISTS `cista_test`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE DATABASE `cista_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mCREATE TABLE `ballot_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_id` int(11), `description` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE `ballots` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `election_id` int(11), `issue` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE `elections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comitia` varchar(255), `presmag` varchar(255), `startdate` datetime, `enddate` datetime, `centprae` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE `options` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_item_id` int(11), `text` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `option_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (5.3ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032755')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090322032614')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032233')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090318234453')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090318232416')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (73.9ms)[0m   [0;1mDROP DATABASE IF EXISTS `cista_test`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE DATABASE `cista_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mCREATE TABLE `ballot_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_id` int(11), `description` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE `ballots` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `election_id` int(11), `issue` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE `elections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comitia` varchar(255), `presmag` varchar(255), `startdate` datetime, `enddate` datetime, `centprae` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE `options` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_item_id` int(11), `text` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `option_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032755')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090322032614')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090322032233')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090318234453')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090318232416')[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateElections (20090318232416)
+Migrating to CreateBallots (20090318234453)
+Migrating to CreateBallotItems (20090322032233)
+Migrating to CreateOptions (20090322032614)
+Migrating to CreateVotes (20090322032755)
+Migrating to CreateUsers (20090322040001)
+  [4;35;1mSQL (21.7ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `login` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090322040001')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mSHOW FIELDS FROM `ballot_items`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `ballot_items`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `ballot_items`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW FIELDS FROM `ballots`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mdescribe `ballots`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `ballots`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `elections`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `elections`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `elections`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mdescribe `options`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `options`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW FIELDS FROM `votes`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mdescribe `votes`[0m
+  [4;35;1mSQL (29.7ms)[0m   [0mSHOW KEYS FROM `votes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (2.7ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`login` = BINARY 'Robet Boyd') LIMIT 1[0m
+  [4;36;1mUser Exists (0.7ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`perishable_token` = BINARY 'E3k1ZcSHFLvq5JomA2p7') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'fa831515aaf930e343a298aecf2096b34699fcd7d65251ed5079c48d4d4fb60815d78535b91c110c34d0617f6c29eb5136fdb718cee1ea2b9b757e7cc720fff3') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'dUNknRBHKJJRqgE4p8Oe') LIMIT 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`login` = BINARY 'Robet Boyd') LIMIT 1[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`perishable_token` = BINARY 'iTbVkQZFYEvse4krLo5k') LIMIT 1[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'fe5c5f2e2633dd6af76e8b6ec59a54d5a26a8ae72975aa03edb4989d1fb0f8a3311ba514eebf9f4be5239786934ef5ec4a17983ce12f496e65468b295e6a625e') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'dUNknRBHKJJRqgE4p8Oe') LIMIT 1[0m
+  [4;35;1mUser Create (0.8ms)[0m   [0mINSERT INTO `users` (`created_at`, `single_access_token`, `crypted_password`, `updated_at`, `perishable_token`, `failed_login_count`, `password_salt`, `persistence_token`, `login_count`, `login`) VALUES('2009-03-22 04:05:35', 'dUNknRBHKJJRqgE4p8Oe', '9e92eceaee83ae754c11b16733a79cd5b0b7a4e47ce6cffa27aa58d07d5d27992be7f3c1165d2b38cf10de9bef6eec731b8a9959ec525bff64a6d8db6ee61cc9', '2009-03-22 04:05:35', 'iTbVkQZFYEvse4krLo5k', 0, '5a02f3168eb10eed4f03accc927e1015c685d74ff0d3b04202e2287eb3e3a087e143fbd949803c1bdd491c7e074a657d35b9ccd1e50bf00700f4cfd2382561c5', 'fe5c5f2e2633dd6af76e8b6ec59a54d5a26a8ae72975aa03edb4989d1fb0f8a3311ba514eebf9f4be5239786934ef5ec4a17983ce12f496e65468b295e6a625e', 0, 'Robet Boyd')[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mVote Load (0.7ms)[0m   [0mSELECT * FROM `votes` LIMIT 1[0m
+  [4;36;1mOption Load (0.6ms)[0m   [0;1mSELECT * FROM `options` LIMIT 1[0m
+  [4;35;1mOption Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mOption Load (0.2ms)[0m   [0mSELECT * FROM `options` LIMIT 1[0m
+  [4;36;1mVote Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mOption Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mOption Load (0.2ms)[0m   [0mSELECT * FROM `options` LIMIT 1[0m
+  [4;36;1mVote Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mOption Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mOption Load (0.4ms)[0m   [0mSELECT * FROM `options` LIMIT 1[0m
+  [4;36;1mVote Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mOption Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mVote Create (0.9ms)[0m   [0mINSERT INTO `votes` (`created_at`, `updated_at`, `option_id`) VALUES('2009-03-22 04:08:29', '2009-03-22 04:08:29', 1)[0m
+  [4;36;1mSQL (11.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mVote Load (0.0ms)[0m   [0mMysql::Error: Unknown column 'votes.user_id' in 'where clause': SELECT * FROM `votes` WHERE (`votes`.user_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (27.7ms)[0m   [0mDROP DATABASE IF EXISTS `cista_development`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE DATABASE `cista_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (12.5ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (5.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateElections (20090318232416)
+  [4;36;1mSQL (25.9ms)[0m   [0;1mCREATE TABLE `elections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comitia` varchar(255), `presmag` varchar(255), `startdate` datetime, `enddate` datetime, `centprae` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090318232416')[0m
+Migrating to CreateBallots (20090318234453)
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE `ballots` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `election_id` int(11), `issue` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090318234453')[0m
+Migrating to CreateBallotItems (20090322032233)
+  [4;36;1mSQL (5.4ms)[0m   [0;1mCREATE TABLE `ballot_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_id` int(11), `description` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032233')[0m
+Migrating to CreateOptions (20090322032614)
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE `options` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_item_id` int(11), `text` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032614')[0m
+Migrating to CreateVotes (20090322032755)
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `option_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032755')[0m
+Migrating to CreateUsers (20090322040001)
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `login` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322040001')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `ballot_items`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mdescribe `ballot_items`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `ballot_items`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FIELDS FROM `ballots`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `ballots`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `ballots`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `elections`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `elections`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `elections`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `options`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `options`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `options`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (30.5ms)[0m   [0mdescribe `votes`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW KEYS FROM `votes`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mElection Load (0.4ms)[0m   [0mSELECT * FROM `elections` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mElection Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `elections`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mElection Create (0.4ms)[0m   [0mINSERT INTO `elections` (`created_at`, `enddate`, `updated_at`, `presmag`, `centprae`, `comitia`, `startdate`) VALUES('2009-03-22 04:10:50', NULL, '2009-03-22 04:10:50', NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (9.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBallot Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `ballots`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (12.6ms)[0m   [0mDROP DATABASE IF EXISTS `cista_development`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE DATABASE `cista_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateElections (20090318232416)
+  [4;36;1mSQL (70.4ms)[0m   [0;1mCREATE TABLE `elections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `comitia` varchar(255), `presmag` varchar(255), `startdate` datetime, `enddate` datetime, `centprae` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090318232416')[0m
+Migrating to CreateBallots (20090318234453)
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE `ballots` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `election_id` int(11), `issue` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090318234453')[0m
+Migrating to CreateBallotItems (20090322032233)
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE `ballot_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_id` int(11), `description` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032233')[0m
+Migrating to CreateOptions (20090322032614)
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE `options` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `ballot_item_id` int(11), `text` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032614')[0m
+Migrating to CreateVotes (20090322032755)
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `option_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322032755')[0m
+Migrating to CreateUsers (20090322040001)
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `login` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090322040001')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `ballot_items`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mdescribe `ballot_items`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `ballot_items`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FIELDS FROM `ballots`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `ballots`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `ballots`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `elections`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mdescribe `elections`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `elections`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FIELDS FROM `options`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mdescribe `options`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `options`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (31.9ms)[0m   [0mdescribe `votes`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `votes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mElection Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `elections`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mElection Create (0.5ms)[0m   [0mINSERT INTO `elections` (`created_at`, `enddate`, `updated_at`, `presmag`, `centprae`, `comitia`, `startdate`) VALUES('2009-03-22 04:12:15', NULL, '2009-03-22 04:12:15', NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (7.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBallot Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `ballots`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBallot Create (0.6ms)[0m   [0mINSERT INTO `ballots` (`created_at`, `election_id`, `updated_at`, `issue`) VALUES('2009-03-22 04:12:34', 1, '2009-03-22 04:12:34', 'Leader election')[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBallotItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `ballot_items`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBallotItem Create (0.4ms)[0m   [0mINSERT INTO `ballot_items` (`ballot_id`, `created_at`, `updated_at`, `description`) VALUES(1, '2009-03-22 04:13:19', '2009-03-22 04:13:19', 'Who should be leader?')[0m
+  [4;36;1mSQL (6.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mOption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `options`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOption Create (0.3ms)[0m   [0mINSERT INTO `options` (`created_at`, `updated_at`, `text`, `ballot_item_id`) VALUES('2009-03-22 04:13:48', '2009-03-22 04:13:48', 'Agricola', 1)[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mOption Create (0.5ms)[0m   [0;1mINSERT INTO `options` (`created_at`, `updated_at`, `text`, `ballot_item_id`) VALUES('2009-03-22 04:14:16', '2009-03-22 04:14:16', 'Caelius Ahenobarbus', 1)[0m
+  [4;35;1mSQL (10.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (1.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`login` = BINARY 'rboyd') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`perishable_token` = BINARY 'i3Bt8WaCmtDdIAGZgu3N') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '3d78782a90d423adb5bfdfad61648e52cd8d2330809c431b0fa3e2ea234a82019c0d364d215b99f264386e26aa52810df487540cc819358d84f3a906e1e256ff') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'gi5oLspsX4pUpGftOXSu') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `single_access_token`, `crypted_password`, `updated_at`, `perishable_token`, `failed_login_count`, `password_salt`, `persistence_token`, `login_count`, `login`) VALUES('2009-03-22 04:15:25', 'gi5oLspsX4pUpGftOXSu', 'fdc174804e1947e80b7d626132ffdd3a8a6bbcf9ac73c09403f4172a333bd5eec52bfb9e0fa01e9c5a4b5275b347790cc516e1d338d3c5a8be3d415d4a18d414', '2009-03-22 04:15:25', 'i3Bt8WaCmtDdIAGZgu3N', 0, '42a9e43addbe3da688e961531d9542389751eb5f47392955c7524e4c3645ca3bc818ae0355b910ce5d9434b044332e8d17a3db904e63a56ff8ca572e6899f536', '3d78782a90d423adb5bfdfad61648e52cd8d2330809c431b0fa3e2ea234a82019c0d364d215b99f264386e26aa52810df487540cc819358d84f3a906e1e256ff', 0, 'rboyd')[0m
+  [4;35;1mSQL (10.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mVote Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mVote Create (0.3ms)[0m   [0;1mINSERT INTO `votes` (`created_at`, `updated_at`, `user_id`, `option_id`) VALUES('2009-03-22 04:15:44', '2009-03-22 04:15:44', 1, 2)[0m
+  [4;35;1mSQL (13.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mElection Load (0.4ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.6ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mElection Load (0.4ms)[0m   [0mSELECT * FROM `elections` LIMIT 1[0m
+  [4;36;1mBallot Load (0.2ms)[0m   [0;1mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;35;1mBallotItem Load (0.4ms)[0m   [0mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) [0m
+  [4;36;1mElection Load (0.2ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.2ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mElection Load (0.4ms)[0m   [0mSELECT * FROM `elections` LIMIT 1[0m
+  [4;36;1mBallot Load (0.3ms)[0m   [0;1mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;35;1mBallotItem Load (0.2ms)[0m   [0mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) [0m
+  [4;36;1mElection Load (0.3ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.2ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mBallotItem Load (0.5ms)[0m   [0;1mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) LIMIT 1[0m
+  [4;35;1mOption Load (0.7ms)[0m   [0mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
+  [4;36;1mElection Load (1.4ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.3ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mBallotItem Load (0.4ms)[0m   [0;1mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) LIMIT 1[0m
+  [4;35;1mOption Load (0.3ms)[0m   [0mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
+  [4;36;1mElection Load (0.4ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.4ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mBallotItem Load (0.3ms)[0m   [0;1mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) LIMIT 1[0m
+  [4;35;1mOption Load (0.2ms)[0m   [0mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
+  [4;36;1mVote Load (0.4ms)[0m   [0;1mSELECT * FROM `votes` WHERE (`votes`.option_id = 2) [0m
+  [4;35;1mElection Load (0.3ms)[0m   [0mSELECT * FROM `elections` LIMIT 1[0m
+  [4;36;1mBallot Load (0.3ms)[0m   [0;1mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;35;1mBallotItem Load (0.2ms)[0m   [0mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) LIMIT 1[0m
+  [4;36;1mOption Load (0.2ms)[0m   [0;1mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM `votes` WHERE (`votes`.option_id = 2) [0m
+  [4;36;1mElection Load (0.4ms)[0m   [0;1mSELECT * FROM `elections` LIMIT 1[0m
+  [4;35;1mBallot Load (0.8ms)[0m   [0mSELECT * FROM `ballots` WHERE (`ballots`.election_id = 1) LIMIT 1[0m
+  [4;36;1mBallotItem Load (0.4ms)[0m   [0;1mSELECT * FROM `ballot_items` WHERE (`ballot_items`.ballot_id = 1) LIMIT 1[0m
+  [4;35;1mOption Load (0.1ms)[0m   [0mSELECT * FROM `options` WHERE (`options`.ballot_item_id = 1) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `votes` WHERE (`votes`.option_id = 1) [0m
