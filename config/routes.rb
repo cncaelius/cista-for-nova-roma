@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :votes
+
+  map.resources :options
+
+  map.resources :ballot_items
+
   map.resources :elections, :has_one => :ballot
   map.resources :ballots, :only => [:index, :show]
   map.root :controller => "elections"

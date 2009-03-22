@@ -1,3 +1,3 @@
 class Election < ActiveRecord::Base
-	has_one	:ballot
+  has_one :ballot
 end
